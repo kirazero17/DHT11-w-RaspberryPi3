@@ -13,31 +13,20 @@
     .card { background-color: white; box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5); }
     .cards { max-width: 700px; margin: 0 auto; display: grid; grid-gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
     .reading { font-size: 2.8rem; }
+    .card.senid { color: #45516C; }
     .card.room { color: #45516C; }
     .card.time { color: #115F8D; }
 	.card.temperature { color: #0D7B82; }
     .card.humidity { color: #17ABA9; }
   </style>
+  {{turbo()}}
 </head>
 <body>
   <div class="topnav">
     <h3>GROUP 14 : DHT11 STATUS</h3>
   </div>
   <div class="content">
-    <div class="cards">
-	  <div class="card room">
-        <h4><i class="fas fa-building"></i> ROOM NAME </h4><p><span class="reading">{{room}}</span></p>
-      </div>
-	  <div class="card time">
-        <h4><i class="fas fa-clock"></i> TIME </h4><p><span class="reading">{{time}}</span></p>
-      </div>
-      <div class="card temperature">
-        <h4><i class="fas fa-thermometer-half"></i> TEMPERATURE </h4><p><span class="reading">{{temp}} &deg;C</span></p>
-      </div>
-      <div class="card humidity">
-        <h4><i class="fas fa-tint"></i> HUMIDITY </h4><p><span class="reading">{{hum}} &percnt;</span></p>
-      </div>
-    </div>
+    {% include 'values.html' %}
   </div>
 </body>
 </html>
