@@ -4,9 +4,10 @@ import adafruit_dht
 import psutil
 
 # We first check if a libgpiod process is running. If yes, we kill it!
-for proc in psutil.process_iter():
-    if proc.name() == 'libgpiod_pulsein' or proc.name() == 'libgpiod_pulsei':
-        proc.kill()
+def init():
+    for proc in psutil.process_iter():
+        if proc.name() == 'libgpiod_pulsein' or proc.name() == 'libgpiod_pulsei':
+            proc.kill()
 
 sensorid = adafruit_dht.DHT11(board.D23)  #Connect output to GPIO23
 
