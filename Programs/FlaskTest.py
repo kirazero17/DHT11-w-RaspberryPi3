@@ -48,5 +48,9 @@ def inject_load():
        }
     return templateData
 
-if __name__ == "__main__":
+# execution
+def main():
     app.run(host='0.0.0.0', port=90, debug=True)
+
+if __name__ == "__main__":
+    main()
