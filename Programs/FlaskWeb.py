@@ -11,7 +11,7 @@ import threading # for BG Update thread
       
 # initialization
 tzone = pytz.timezone("Asia/Ho_Chi_Minh")      
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder='../templates')
 turbo = Turbo(app)
 
 #DHTRasp.init()
@@ -50,7 +50,7 @@ def inject_load():
 
 # execution
 def main():
-    app.run(host='0.0.0.0', port=90, debug=True)
+    app.run(host='0.0.0.0', port=9600, debug=False)
 
 if __name__ == "__main__":
     main()
