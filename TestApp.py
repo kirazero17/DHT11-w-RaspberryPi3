@@ -1,3 +1,3 @@
-import Programs.FlaskTest as FlaskTest
+import Programs.FlaskWeb as Webpg
 
-FlaskTest.main()
+Webpg.main()
