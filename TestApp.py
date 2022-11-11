@@ -1,3 +1,5 @@
+from multiprocessing import Process
 import Programs.FlaskWeb as Webpg
 
-Webpg.main()
+if __name__=='__main__':
+    Webpg.main()
