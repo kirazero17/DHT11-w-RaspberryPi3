@@ -7,14 +7,13 @@ import pytz
 from flask import Flask, render_template, request, Response, jsonify,make_response
 from turbo_flask import Turbo #Dynamic web
 import threading # for BG Update thread
-#import DHTRasp #remove the first # of this line
+import DHTRasp as DHT  #remove the first # of this line
       
 # initialization
 tzone = pytz.timezone("Asia/Ho_Chi_Minh")      
 app = Flask(__name__, template_folder='../templates')
 turbo = Turbo(app)
 
-#DHTRasp.init()
 
 def update_load():
     with app.app_context():
@@ -37,14 +36,24 @@ def before_first_request():
 def inject_load():
     now = datetime.datetime.now(tzone)
     timeString = now.strftime("%d-%m-%Y %H:%M:%S") # getting the current date and time
-#    t,humidity=DHTRasp.sensread(DHTRasp.sensorid) #getting the temperature
+    t,humidity=DHT.snsrd() #getting the temperature
+    if int(t) > 40 or float(humidity) > 70.:
+        warning = "Yes"
+    else:
+        warning = "No"
+    
+    if t < -273:
+        t = 'NaN'
+    if humidity < 0:
+        humidity = 'NaN'
+    
     templateData = {
-       'senid' : 'IDXX',
-       'room' : 'Testing Room',
+       'senid' : '1234',
+       'room' : 'Test Room',
        'time': timeString,
-       'temp': 'No data',
-       'hum': 'No data',
-       'warning': 'None'
+       'temp': str(t),
+       'hum': str(humidity),
+       'warning': warning
        }
     return templateData
 

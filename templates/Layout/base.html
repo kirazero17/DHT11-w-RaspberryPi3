@@ -13,7 +13,7 @@
 	.senselect { position: relative; margin-bottom: 20px; font-family: Arial; font-size: 1.2rem; }
 	.select-selected { background-color: White; }
 	.select-items { position: absolute; background-color: DodgerBlue; top: 100%; left: 0; right: 0; z-index: 99; cursor:pointer; }
-	.lginbtn { position: absolute; right: 40px; top: 45px; font-family: Arial; }
+	.lginbtn { display: inline-flex; position: relative; margin-bottom: 20px; font-family: Arial; }
 	  .lginbtn > button { display: inline-block; color: white; background-color: #274F79; border: 2px solid white; 
 		  padding: 12px 32px; cursor: pointer; }
 	  
@@ -35,10 +35,6 @@
   <div class="topnav">
     <h2>GROUP 14 : DHT11 STATUS</h2>  	  
 	  
-	<div class="lginbtn">
-		 <button style="font-size: 1.1rem;">Get stats from other buildings</button>
-	  </div>
-	  
 	<div class="senselect">
 		<label for="Sens">Select a Sensor: &nbsp;</label>
 		<select name="Sens" id="Sens" style="height: 32px; font-size: 1.1rem; padding: 0 12px; cursor:pointer; ">
@@ -46,6 +42,10 @@
 	  		<option value="2">Storage 2</option>
 		</select>	
 	 </div>
+	  
+	<div class="lginbtn">
+		 <button style="font-size: 1.1rem;">Get stats from other buildings</button>
+	  </div>
   </div>
 	
   <div class="content">
