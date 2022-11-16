@@ -8,7 +8,7 @@ def snsrd():
     for proc in psutil.process_iter():
         if proc.name() == 'libgpiod_pulsein' or proc.name() == 'libgpiod_pulsei':
             proc.kill()
-    dhtdev = dht.DHT11(board.D22, True)
+    dhtdev = dht.DHT11(board.D23, True)
     try:
         temp = dhtdev.temperature #Connect output to GPIO22
         humidity = dhtdev.humidity
